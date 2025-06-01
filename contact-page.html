@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mo' Than Just Talent</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<div class="header-section">
+    <header class="header">
+        <a href="../index.html">
+        <div class="logo">
+                <img src="assets/Mo-logo.png" alt="Mo' Than Just Talent Logo">
+        </div></a>
+        <nav class="nav">
+            <a href="pages/artists.html">Artists</a>
+            <a href="index.html#aboutus">About Us</a>
+            <a href="index.html#services">Services</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+       
+
+
+    
+    <section id="contact" class="contact">
+        <div class="contact-section">
+    <h2>Contact Us</h2>
+    <p>We’d love to hear from you! Reach out to us for inquiries, bookings, or collaborations.</p>
+    
+    <div class="contact-container">
+        <!-- Contact Form -->
+        <form class="contact-form">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="submit-button">Send Message</button>
+        </form>
+
+
+        <!-- Contact Details -->
+        <div class="contact-details">
+            <h3>Get in Touch</h3>
+            <p><strong>Email:</strong> info@mothanjusttalent.com</p>
+            <p><strong>Phone:</strong> +27 69 657 4645</p>
+            <p><strong>Address:</strong> Johannesburg, South Africa</p>
+            <div class="map-placeholder">     
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d229751.892570928!2d27.8755532!3d-26.1714281!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e950c68f0406a51%3A0x238ac9d9b1d34041!2sJohannesburg!5e0!3m2!1sen!2sza!4v1713624961239!5m2!1sen!2sza" 
+                style="border:0;" 
+                object-fit="cover"
+                width="100%"
+                height="100%"
+                loading="lazy"
+                alt="Google-Maps"
+                referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+
+   
+
+    <footer class="footer">
+        <div class="footer-logo">
+                <img src="assets/Mo-logo.png" alt="">
+            </div>
+        <div class="footer-writing">
+        <p class="p-title"><b>Mo' Than Just Talent</b></p>
+        <p>We’re a boutique talent agency</p>
+        <p>that specializes in voice-over</p>
+        <p>services and talent management.</p>
+        <p>We provide refreshing, distinct</p>
+        <p>voices that resonate with the</p>
+        <p>South African audience and</p>
+        <p>personalities that bring</p>
+        <p>authenticity to your ideas.</p>
+
+        <div class="social-icons">
+                <a class="first" href="#"><img src="assets/icons/facebook-icon.svg" alt="Facebook"></a>
+                <a href="#"><img src="assets/icons/twitter-icon.svg" alt="Twitter"></a>
+                <a href="#"><img src="assets/icons/instagram-icon.svg" alt="Instagram"></a>
+            </div>
+        </div>
+        
+
+        <div class="footer-contact">
+        <p><b>Contact us:</b></p> 
+        <p>Email: info@mothanjusttalent.com</p>
+        <p>Phone: +27 69 657 4645</p>
+
+        <p><b>Address:</b></p>
+        <p>Mo' Than Just Talent (Pty) Ltd</p>
+        <p>98 Conrad Drive </p>
+        <p>Blairgowrie </p>
+        <p>Randburg</p>
+        <p>2194</p>
+        </div>
+
+    
+
+    <div class="footer-nav">
+        <div class="footer-nav-items">
+            
+            <p><a href="#">Home</a></p>
+            <p><a href="#">Artist Personalities</a></p>
+            <p><a href="#">About us</a></p>
+            <p><a href="#">Our Services</a></p>
+            <p><a href="#">Equire Now</a></p>
+            <p><a href="#">Contact</a></p>
+        </div>
+    </div>
+
+    <div class="footer-content">
+            <p>Copyright © 2024 Mo' Than Just Talent</p>
+
+           
+            
+        </div>
+
+    </footer>
+
+    <script>
+        // Lazy loading functionality
+        document.addEventListener('DOMContentLoaded', () => {
+    const lazyImages = document.querySelectorAll('img[data-src]');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                observer.unobserve(img);
+            }
+        });
+    });
+
+    lazyImages.forEach(img => {
+        observer.observe(img);
+    });
+});
+    </script>
+</body>
+</html>
