@@ -205,9 +205,9 @@ header {
 	display: inline-block;
 	padding: 1rem 2rem;
 	margin: 0 1vw;
-	background-color: var(--lime2);
-	border: 2px solid black;
-	box-shadow: black 3px 3px 1px;
+	background-color: #98b827;
+	/*border: 2px solid black;
+	box-shadow: black 3px 3px 1px;*/
 	color: black;
 	font-size: 1rem;
 	font-weight: 600;
@@ -220,10 +220,15 @@ header {
 	background-color: #1a1a1a;
 	color: white;
 }
+.black:hover {
+	background-color: #707070 !important;
+}
 .cta-button:hover {
-	background-color: var(--green);
+	background-color: #b4da2e;
+	border: 2px solid black;
+	box-shadow: black 3px 3px 1px;
 	transform: scale(1.01);
-	color: white;
+	color: black;
 }
 
 .about-card {
