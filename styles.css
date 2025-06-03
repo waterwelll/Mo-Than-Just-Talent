@@ -146,9 +146,8 @@ header {
 	background-color: #ffffff;
 	border-radius: var(--card-radius);
 
-	margin-bottom: 2rem;
 	max-width: 1200px;
-	margin: 50px !important;
+	margin: 0 2rem !important;
 	border: 2px solid black;
 }
 .introduction h1 {
@@ -165,7 +164,7 @@ header {
 	font-weight: ;
 	font-size: 1.2rem;
 	margin-top: 2rem;
-	margin-bottom: 2rem;
+
 	text-align: center;
 	color: #313131;
 }
@@ -199,7 +198,7 @@ header {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding-top: 1rem;
+	padding-top: 4rem;
 	height: 4rem;
 }
 .button-space {
@@ -247,7 +246,7 @@ header {
 	font-size: 1.2rem;
 	margin: 12rem;
 	margin-top: 5rem;
-	margin-bottom: 18rem;
+	margin-bottom: 0 !important;
 	text-align: center;
 	color: #222222;
 }
@@ -582,7 +581,7 @@ footer {
 }
 
 .footer-contact {
-	margin-top: -82px;
+	margin-top: -62px;
 	font-size: 1rem;
 	color: #868686;
 	line-height: 1.8;
@@ -593,7 +592,7 @@ footer {
 }
 
 .footer-cta {
-	margin-top: -156px;
+	margin-top: -136px;
 	font-size: 1rem;
 	color: #868686;
 	line-height: 1.8;
@@ -632,7 +631,7 @@ footer {
 	height: 100%;
 	color: #868686;
 	margin-left: 40px;
-	margin-top: -14px;
+	margin-top: 0px;
 	max-width: 271px;
 	height: 287px;
 }
