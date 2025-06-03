@@ -631,7 +631,7 @@ footer {
 	height: 100%;
 	color: #868686;
 	margin-left: 40px;
-	margin-top: 0px;
+	margin-top: 6px;
 	max-width: 271px;
 	height: 287px;
 }
@@ -1648,5 +1648,55 @@ audio::-webkit-media-controls-pause-button {
 
 	.audio-file h3 {
 		font-size: 1rem;
+	}
+}
+
+@media screen and (max-width: 410px) {
+	body,
+	html {
+		margin: 0;
+		padding: 0;
+		overflow-x: hidden; /* Prevent horizontal scrolling */
+	}
+
+	section,
+	.introduction,
+	.artist-page,
+	footer {
+		margin: 0 auto; /* Ensure sections are horizontally centered */
+		padding: 0.5rem; /* Adjust padding for smaller screens */
+		max-width: 100%; /* Ensure sections take full width */
+		text-align: center; /* Center text content */
+	}
+
+	.thumbnails {
+		grid-template-columns: 1fr; /* Display one thumbnail per row */
+		justify-content: center; /* Center thumbnails */
+	}
+
+	.nav a {
+		font-size: 0.7rem; /* Adjust font size for navigation links */
+		padding: 0.3rem 0.5rem; /* Adjust padding for smaller screens */
+	}
+
+	.footer-contact,
+	.footer-writing,
+	.footer-nav,
+	.footer-cta {
+		margin: 0 auto; /* Center footer content */
+		text-align: center;
+	}
+
+	.audio-container {
+		gap: 0.5rem; /* Reduce spacing between audio files */
+	}
+
+	.audio-file {
+		flex-direction: column; /* Stack text and audio player vertically */
+		align-items: center;
+	}
+
+	.audio-file p {
+		text-align: center; /* Center text in audio files */
 	}
 }
