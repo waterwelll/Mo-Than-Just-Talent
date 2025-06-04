@@ -1060,6 +1060,11 @@ footer {
 .artist-bio {
 	margin: 0;
 	padding: 0;
+	width: 100%;
+	max-width: 700px;
+	margin: 0 auto 2rem auto;
+	padding: 0 1.5rem;
+	box-sizing: border-box;
 }
 
 .artist-languages,
@@ -1107,30 +1112,30 @@ footer {
 
 .audio-file {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	align-items: center;
-	justify-content: space-between; /* Space out the text and audio player */
-
-	width: 10%;
-	background-color: #f9f9f9;
-	border-radius: 8px;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	width: 100%;
+	background: none;
+	box-shadow: none;
+	padding: 0.5rem 0;
+	margin: 0;
 }
 
 .audio-file p {
-	font-size: 0.8rem !important;
-	color: var(--text-color);
-	margin: 0;
-	flex: 1; /* Allow the text to take up available space */
+	margin-top: 0.5rem;
+	font-size: 1rem;
+	text-align: center;
+	word-break: break-word;
+	padding: 0;
 }
 
-audio {
-	width: 60%; /* Adjust the width of the audio player */
-	background-color: black; /* Make the audio player transparent */
-	border: none; /* Remove any borders */
-	outline: none; /* Remove focus outline */
-	margin: 0;
-	padding: 0;
+.audio-file audio {
+	width: 100%;
+	max-width: 350px;
+	margin: 0 auto;
+	background: none;
+	border: none;
+	outline: none;
 }
 
 .artist-links {
@@ -1534,7 +1539,7 @@ header {
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-between; /* Space out the text and audio player */
-	gap: 1rem;
+
 	width: 100%;
 	padding: 0rem;
 	background-color: #e9e8e8;
@@ -1545,7 +1550,7 @@ header {
 .audio-file p {
 	font-size: 0.9rem;
 	color: var(--text-color);
-	margin: 0;
+	margin: 1rem;
 	flex: 1; /* Allow the text to take up available space */
 }
 
@@ -1698,5 +1703,63 @@ audio::-webkit-media-controls-pause-button {
 
 	.audio-file p {
 		text-align: center; /* Center text in audio files */
+	}
+}
+
+/* --- Thumbnails: keep them proportional to the large image on all screens --- */
+.thumbnails {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 0.5rem;
+	width: 100%;
+	max-width: 500px;
+	margin: 0 auto;
+}
+
+.thumbnails img {
+	width: 100%;
+	aspect-ratio: 1 / 1;
+	object-fit: cover;
+	object-position: top;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	cursor: pointer;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Responsive: keep thumbnails in a row and proportional on all screens */
+@media screen and (max-width: 768px) {
+	.thumbnails {
+		grid-template-columns: repeat(3, 1fr);
+		max-width: 100vw;
+	}
+	.thumbnails img {
+		width: 100%;
+		max-width: none;
+		min-width: 0;
+		aspect-ratio: 1 / 1;
+	}
+}
+@media screen and (max-width: 480px) {
+	.thumbnails {
+		grid-template-columns: repeat(3, 1fr);
+		max-width: 100vw;
+	}
+	.thumbnails img {
+		width: 100%;
+		max-width: none;
+		min-width: 0;
+		aspect-ratio: 1 / 1;
+	}
+}
+@media screen and (max-width: 410px) {
+	.thumbnails {
+		grid-template-columns: repeat(3, 1fr);
+		max-width: 100vw;
+	}
+	.thumbnails img {
+		width: 100%;
+		max-width: none;
+		min-width: 0;
+		aspect-ratio: 1 / 1;
 	}
 }
