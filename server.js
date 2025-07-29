@@ -5,38 +5,42 @@ const cors = require("cors");
 
 const app = express();
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
 // Endpoint to handle form submission
 app.post("/send-email", async (req, res) => {
+	console.log("Raw req.body:", req.body); // Add this line
 	const { name, email, message } = req.body;
 
 	console.log("Received form data:", { name, email, message }); // Log incoming data
 
-	// Configure Nodemailer
 	const transporter = nodemailer.createTransport({
-		service: "gmail", // Use your email provider
+		service: "gmail",
 		auth: {
-			user: "tiishetsoseragi@gmail.com", // Replace with your email
-			pass: "cbuf hjyo llkt wqdi", // Replace with your email password
+			user: "tiishetsoseragi@gmail.com",
+			pass: "navp aisg yted fahc",
 		},
 	});
 
-	// Email options
 	const mailOptions = {
-		from: email,
-		to: "tiishetsoseragi@gmail.com", // Replace with the website's email
+		from: "tiishetsoseragi@gmail.com",
+		to: "tiishetsoseragi@gmail.com",
+		replyTo: email,
 		subject: `New Contact Form Submission from ${name}`,
 		text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
 	};
 
 	try {
 		await transporter.sendMail(mailOptions);
-		console.log("Email sent successfully"); // Log success
-		res.status(200).send("Email sent successfully");
+		console.log("Email sent successfully");
+		res.status(200).json({ success: true, message: "Email sent successfully" }); // <-- JSON
 	} catch (error) {
-		console.error("Error sending email:", error); // Log error
-		res.status(500).send("Error sending email");
+		console.error("Error sending email:", error);
+		res.status(500).json({
+			success: false,
+			message: "Error sending email: " + error.message,
+		}); // <-- JSON
 	}
 });
 

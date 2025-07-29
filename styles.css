@@ -485,7 +485,7 @@ header {
 .contact-details {
 	flex: 1 1 400px;
 	min-height: 467.2px;
-	max-height: 467.2px;
+	max-height: 100%;
 	background-color: #f8f8f8;
 	padding: 2rem;
 	border-radius: var(--card-radius);
@@ -506,7 +506,7 @@ header {
 /* map placeholder */
 .map-placeholder {
 	margin-top: 1rem;
-	height: 200px;
+	height: 250px !important;
 	background-color: #e0e0e0;
 	display: flex;
 	justify-content: center;
@@ -1374,12 +1374,20 @@ header {
 	}
 
 	/* Contact Section for Smartphones and Small Devices */
+	.contact-section {
+		margin: 7px;
+		margin-top: 20px;
+	}
 	.contact-section h2 {
 		font-size: 2rem; /* Reduce heading size */
 	}
 
+	.contact-p {
+		margin-top: 0px;
+	}
+
 	.contact-section p {
-		font-size: 0.9rem; /* Reduce paragraph font size */
+		font-size: 0.9rem;
 	}
 
 	.contact-form,
@@ -1399,7 +1407,7 @@ header {
 	}
 
 	.map-placeholder {
-		height: 120px; /* Further reduce map height */
+		height: 250px; /* Further reduce map height */
 		font-size: 0.9rem; /* Adjust placeholder text size */
 	}
 
@@ -1618,6 +1626,16 @@ audio::-webkit-media-controls-pause-button {
 
 /* Adjustments for very small screens */
 @media screen and (max-width: 480px) {
+	.intro-wrapper {
+		margin: 0 1rem !important;
+	}
+
+	.introduction {
+		margin: 0 auto; /* Ensure sections are horizontally centered */
+		padding: 0.5rem; /* Adjust padding for smaller screens */
+		max-width: 100%; /* Ensure sections take full width */
+		text-align: center; /* Center text content */
+	}
 	.artist-page {
 		padding: 0.5rem;
 	}
@@ -1657,7 +1675,6 @@ audio::-webkit-media-controls-pause-button {
 	}
 
 	section,
-	.introduction,
 	.artist-page,
 	footer {
 		margin: 0 auto; /* Ensure sections are horizontally centered */

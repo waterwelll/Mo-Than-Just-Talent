@@ -18,9 +18,9 @@
                 <img src="assets/Mo-logo.png" alt="Mo' Than Just Talent Logo">
         </div></a>
         <nav class="nav">
+            <a href="index.html">Home</a>
             <a href="pages/artists.html">Artists</a>
             <a href="index.html#aboutus">About Us</a>
-            <a href="index.html#services">Services</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
@@ -36,7 +36,9 @@
     
     <div class="contact-container">
         <!-- Contact Form -->
-        <form class="contact-form">
+        <form action="http://localhost:3000/send-email" method="POST"
+              class="contact-form"
+              id="contactForm">
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" placeholder="Your Name" required>
@@ -137,25 +139,63 @@
         </div>
 
     </footer>
-
+    <div id="formMessage" style="display:none; position:fixed; top:30px; left:50%; transform:translateX(-50%); background:#222; color:#fff; padding:1em 2em; border-radius:8px; z-index:9999; font-size:1.1em;"></div>
+    <script src="server.js"></script>
     <script>
         // Lazy loading functionality
         document.addEventListener('DOMContentLoaded', () => {
-    const lazyImages = document.querySelectorAll('img[data-src]');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                observer.unobserve(img);
-            }
-        });
-    });
+            const lazyImages = document.querySelectorAll('img[data-src]');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        observer.unobserve(img);
+                    }
+                });
+            });
 
-    lazyImages.forEach(img => {
-        observer.observe(img);
-    });
-});
+            lazyImages.forEach(img => {
+                observer.observe(img);
+            });
+        });
     </script>
+    <script>
+function showFormMessage(msg, isError = false) {
+  const box = document.getElementById('formMessage');
+  box.textContent = msg;
+  box.style.background = isError ? '#c0392b' : '#222';
+  box.style.display = 'block';
+  setTimeout(() => { box.style.display = 'none'; }, 3000);
+}
+
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const data = {
+    name: form.name.value,
+    email: form.email.value,
+    message: form.message.value
+  };
+
+  try {
+    const response = await fetch('http://localhost:3000/send-email', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    const result = await response.json();
+    if (result.success) {
+      showFormMessage('message sent.');
+      form.reset();
+    } else {
+      showFormMessage('Error: ' + result.message, true);
+    }
+  } catch (err) {
+    showFormMessage('Network error: ' + err.message, true);
+  }
+});
+</script>
 </body>
 </html>
